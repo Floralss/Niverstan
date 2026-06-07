@@ -166,20 +166,22 @@
     </div>
 
     <script>
-        // СПИСОК КЛЮЧЕЙ (Пропиши их прямо сюда через запятую)
+        // Твои ключи доступа
         const validKeys = [
-            "SECRET-KEY-1111",
-            "NIVERSTAN-VIP-999",
-            "ADMIN-KEY-777"
+            "NIVER-A1B2-C3D4",
+            "NIVER-E5F6-G7H8",
+            "NIVER-I9J0-K1L2",
+            "NIVER-M3N4-O5P6"
         ];
 
-        // Проверка при загрузке страницы (залогинен ли уже)
+        // Проверка при загрузке страницы, входил ли пользователь ранее
         window.onload = function() {
             if (localStorage.getItem('auth_success') === 'true') {
                 showMenu();
             }
         };
 
+        // Функция проверки введенного ключа
         function checkKey() {
             const input = document.getElementById('key-input').value.trim();
             
@@ -191,11 +193,13 @@
             }
         }
 
+        // Показать главное меню
         function showMenu() {
             document.getElementById('login-box').classList.add('hidden');
             document.getElementById('main-menu').classList.remove('hidden');
         }
 
+        // Выйти из системы
         function logout() {
             localStorage.removeItem('auth_success');
             document.getElementById('main-menu').classList.add('hidden');
